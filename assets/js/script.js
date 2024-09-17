@@ -11,10 +11,13 @@
 const preloader = document.querySelector("[data-preaload]");
 
 window.addEventListener("load", function () {
-  preloader.classList.add("loaded");
-  document.body.classList.add("loaded");
-});
+  preloader.style.display = "none"; 
 
+  setTimeout(() => {
+    preloader.classList.remove("loaded");
+    document.body.classList.remove("loaded");
+  }, 0); 
+});
 
 
 /**
