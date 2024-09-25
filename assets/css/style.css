@@ -1186,7 +1186,9 @@ textarea.input-field {
 
 .features .section-title { margin-block-end: 40px; }
 
-.feature-card { padding: 30px 20px 40px; }
+.feature-card { 
+  background-color: white;
+}
 
 .feature-item:nth-child(2n+1) .feature-card { background-color: var(--eerie-black-3); }
 
@@ -1197,8 +1199,6 @@ textarea.input-field {
   margin-inline: auto;
   transition: var(--transition-2);
 }
-
-.feature-card:hover .card-icon { transform: scale(-1) rotate(180deg); }
 
 .feature-card .card-title { margin-block: 20px; }
 
