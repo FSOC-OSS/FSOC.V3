@@ -369,6 +369,10 @@ body.nav-active { overflow: hidden; }
 
 .bg-black-10 { background-color: var(--smoky-black-2); }
 
+.grid-list {
+  display: grid;
+  gap: 40px;
+}
 
 
 .img-holder {
@@ -988,7 +992,8 @@ body.nav-active { overflow: hidden; }
 
 .menu-card {
   display: flex;
-
+  align-items: flex-start;
+  gap: 20px;
 }
 
 .hover\:card .card-banner { background-color: var(--gold-crayola); }
