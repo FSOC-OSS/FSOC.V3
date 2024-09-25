@@ -374,23 +374,6 @@ body.nav-active { overflow: hidden; }
   gap: 40px;
 }
 
-.hover\:shine { position: relative; }
-
-.hover\:shine::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 50%;
-  height: 100%;
-  background-image: linear-gradient(to right, transparent 0%, #fff6 100%);
-  transform: skewX(-0.08turn) translateX(-180%);
-}
-
-.hover\:shine:is(:hover, :focus-within)::after {
-  transform: skewX(-0.08turn) translateX(275%);
-  transition: var(--transition-3);
-}
 
 .img-holder {
   aspect-ratio: var(--width) / var(--height);
@@ -603,13 +586,12 @@ body.nav-active { overflow: hidden; }
   background-color: var(--white);
   margin-block: 4px;
   transform-origin: left;
-  animation: menuBtn 400ms ease-in-out alternate infinite;
 }
 
-@keyframes menuBtn {
+/* @keyframes menuBtn {
   0% { transform: scaleX(1); }
   100% { transform: scaleX(0.5); }
-}
+} */
 
 .nav-open-btn .line-2 { animation-delay: 150ms; }
 
