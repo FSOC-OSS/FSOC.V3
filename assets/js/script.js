@@ -1,6 +1,3 @@
-'use strict';
-
-
 
 /**
  * PRELOAD
@@ -45,9 +42,6 @@ const toggleNavbar = function () {
 
 
 
-/**
- * HEADER & BACK TOP BTN
- */
 
 const header = document.querySelector("[data-header]");
 const backTopBtn = document.querySelector("[data-back-top-btn]");
@@ -56,12 +50,7 @@ let lastScrollPos = 0;
 
 const hideHeader = function () {
   const isScrollBottom = lastScrollPos < window.scrollX;
-  if (isScrollBottom) {
-  // Do something
-  } else {
-      // Do something
-  }
-
+ 
   lastScrollPos = window.scrollX;
 }
 
