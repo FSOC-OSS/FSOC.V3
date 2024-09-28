@@ -34,8 +34,9 @@ const addEventOnElements = function (elements, eventType, callback) {
 /**
  * NAVBAR
  */
-const closeBtn = document.getElementsByClassName('close-btn')[0];
 const navbtn = document.getElementsByClassName('nav-open-btn')[0];
+const closeBtn = document.getElementsByClassName('close-btn')[0];
+
 
 const navbar = document.querySelector("[data-navbar]");
 const navTogglers = document.querySelectorAll("[data-nav-toggler]");
