@@ -31,6 +31,12 @@ const addEventOnElements = function (elements, eventType, callback) {
  * NAVBAR
  */
 
+/**
+ * NAVBAR
+ */
+const closeBtn = document.getElementsByClassName('close-btn')[0];
+const navbtn = document.getElementsByClassName('nav-open-btn')[0];
+
 const navbar = document.querySelector("[data-navbar]");
 const navTogglers = document.querySelectorAll("[data-nav-toggler]");
 const overlay = document.querySelector("[data-overlay]");
@@ -41,6 +47,8 @@ const toggleNavbar = function () {
 }
 
 
+navbtn.addEventListener('click', toggleNavbar);
+closeBtn.addEventListener('click', toggleNavbar);
 
 
 const header = document.querySelector("[data-header]");
