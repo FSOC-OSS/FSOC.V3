@@ -15,17 +15,6 @@ window.addEventListener("load", function () {
 });
 
 
-/**
- * add event listener on multiple elements
- */
-
-const addEventOnElements = function (elements, eventType, callback) {
-  for (let i = 0, len = elements.length; i < len; i++) {
-    elements[i].addEventListener(eventType, callback);
-  }
-}
-
-
 
 /**
  * NAVBAR
@@ -41,7 +30,7 @@ const toggleNavbar = function () {
 }
 
 
-
+document.querySelector(".nav-open-btn").addEventListener("click", toggleNavbar)
 
 const header = document.querySelector("[data-header]");
 const backTopBtn = document.querySelector("[data-back-top-btn]");
@@ -121,11 +110,15 @@ const autoSlide = function () {
   }, 7000);
 }
 
-addEventOnElements([heroSliderNextBtn, heroSliderPrevBtn], "mouseover", function () {
+heroSliderNextBtn.addEventListener("mouseover", function () {
+  clearInterval(autoSlideInterval);})
+heroSliderPrevBtn.addEventListener("mouseover", function () {
   clearInterval(autoSlideInterval);
 });
 
-addEventOnElements([heroSliderNextBtn, heroSliderPrevBtn], "mouseout", autoSlide);
+heroSliderNextBtn.addEventListener("mouseout", autoSlide);
+heroSliderPrevBtn.addEventListener("mouseout", autoSlide);
+
 
 window.addEventListener("load", autoSlide);
 
