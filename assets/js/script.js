@@ -53,7 +53,7 @@ closeBtn.addEventListener('click', toggleNavbar);
 
 
 const header = document.querySelector("[data-header]");
-const backTopBtn = document.querySelector("[data-back-top-btn]");
+const backTopBtn = document.querySelector(".back-top-btn");
 
 let lastScrollPos = 0;
 
@@ -72,6 +72,16 @@ window.addEventListener("scroll", function () {
   }
 });
 
+function scrollToTop() {
+  window.scrollTo({
+      top: 0,
+      behavior: 'smooth' 
+  });
+}
+
+backTopBtn.addEventListener('click', function(event) {
+  event.preventDefault(); 
+  scrollToTop(); })
 
 
 /**
