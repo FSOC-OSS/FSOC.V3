@@ -29,8 +29,8 @@ const toggleNavbar = function () {
   document.body.classList.toggle("nav-active");
 }
 
-
 document.querySelector(".nav-open-btn").addEventListener("click", toggleNavbar)
+document.querySelector(".close-btn").addEventListener("click", toggleNavbar)
 
 const header = document.querySelector("[data-header]");
 const backTopBtn = document.querySelector("[data-back-top-btn]");
