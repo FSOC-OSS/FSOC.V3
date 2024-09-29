@@ -9,9 +9,17 @@ const preloader = document.querySelector("[data-preaload]");
 
 window.addEventListener("load", function () {
   setTimeout(() => {
-    preloader.classList.add("loaded");
-    document.body.classList.add("loaded");
-  }, 0); 
+    if (preloader) {
+      if (preloader.style.display !== "none" && window.getComputedStyle(preloader).display !== "none") {
+        preloader.style.display = "none"; 
+        document.body.classList.add("loaded"); 
+      } else {
+        console.warn("Preloader is already hidden or not visible.");
+      }
+    } else {
+      console.error("Preloader element not found.");
+    }
+  }, 2000); 
 });
 
 
