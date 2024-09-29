@@ -1,4 +1,9 @@
+// Changing Text with Dom
+let newtext ="At Grilli, we pride ourselves on our vibrant community engagement and commitment to excellence. We’ve organized local events and open mic nights to bring people together, while also implementing sustainable practices, such as eco-friendly packaging. Our dedication to quality has earned us awards for the best coffee and service. We've launched a successful customer loyalty program and expanded with new locations to better serve our patrons. Our menu is diverse and inclusive, catering to various dietary preferences, and we proudly partner with local producers to source fresh ingredients. Join us as we continue to grow and engage with our wonderful community!;"
+ document.getElementsByClassName('aboutDesc')[0].innerText = newtext; 
 
+ let TopNotchtext = "At Grilli, enjoy artisanal coffee, freshly baked pastries, and locally sourced dishes in a cozy atmosphere, perfect for relaxation and connection."
+ document.getElementsByClassName('weOffer')[0].innerHTML= TopNotchtext;
 /**
  * PRELOAD
  * 
@@ -174,3 +179,5 @@ window.addEventListener("mousemove", function (event) {
   }
 
 });
+
+//
