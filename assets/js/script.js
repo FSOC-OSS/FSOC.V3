@@ -40,6 +40,7 @@ const toggleNavbar = function () {
   document.body.classList.toggle("nav-active");
 }
 
+addEventOnElements(navTogglers, "click", toggleNavbar);
 
 /**
  * HERO SLIDER
