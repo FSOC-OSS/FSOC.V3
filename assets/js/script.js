@@ -92,7 +92,7 @@ backTopBtn.addEventListener('click', function(event) {
 /**
  * HERO SLIDER
  */
-
+// used queryselector all correctly 
 const heroSlider = document.querySelectorAll("[data-hero-slider]"); 
 const heroSliderItems = document.querySelectorAll("[data-hero-slider-item]");
 const heroSliderPrevBtn = document.querySelector("[data-prev-btn]");
