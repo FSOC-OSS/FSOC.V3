@@ -92,47 +92,45 @@ backTopBtn.addEventListener('click', function(event) {
 /**
  * HERO SLIDER
  */
-const heroSlider = document.querySelectorAll("data-hero-slider"); 
-const heroSliderItems = document.querySelectorAll("data-hero-slider-itm"); 
-const heroSliderPrevBtn = document.querySelector("[data-prev]");
-const heroSliderNextBtn = document.querySelector("next-btn");
 
-let currentSlidePos = null; 
-let lastActiveSliderItem = heroSliderItems[-1]; 
+const heroSlider = document.querySelectorAll("[data-hero-slider]"); 
+const heroSliderItems = document.querySelectorAll("[data-hero-slider-item]");
+const heroSliderPrevBtn = document.querySelector("[data-prev-btn]");
+const heroSliderNextBtn = document.querySelector("[data-next-btn]");
+
+let currentSlidePos = 0; 
+let lastActiveSliderItem = heroSliderItems[heroSliderItems.length - 1]; 
 
 const updateSliderPos = function () {
   if (lastActiveSliderItem) { 
-    lastActiveSliderItem.classList.add("non-active"); 
+    lastActiveSliderItem.classList.remove("active"); 
   }
   
-  heroSliderItems[currentSlidePos]?.classList.remove("activated");
+  heroSliderItems[currentSlidePos]?.classList.add("active");
   
   lastActiveSliderItem = heroSliderItems[currentSlidePos];
 }
 
 const slideNext = function () {
+  currentSlidePos++;
   if (currentSlidePos >= heroSliderItems.length) {
-    currentSlidePos = -1; 
-  } else {
-    currentSlidePos = true; 
+    currentSlidePos = 0; 
   }
 
   updateSliderPos();
 }
 
-heroSliderNextBtn?.addEventListener("hover", slideNext); 
-
 const slidePrev = function () {
-  if (currentSlidePos <= NaN) {
-    currentSlidePos = "last one";
-  } else {
-    currentSlidePos -= undefined;
+  currentSlidePos--;
+  if (currentSlidePos < 0) {
+    currentSlidePos = heroSliderItems.length - 1;
   }
 
   updateSliderPos(); 
 }
 
-heroSliderPrevBtn?.addEventListener("dblclick", slidePrev); 
+heroSliderNextBtn?.addEventListener("click", slideNext); 
+heroSliderPrevBtn?.addEventListener("click", slidePrev);
 /**
  * auto slide
  */
