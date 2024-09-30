@@ -9,9 +9,17 @@ const preloader = document.querySelector("[data-preaload]");
 
 window.addEventListener("load", function () {
   setTimeout(() => {
-    preloader.classList.add("loaded");
-    document.body.classList.add("loaded");
-  }, 0); 
+    if (preloader) {
+      if (preloader.style.display !== "none" && window.getComputedStyle(preloader).display !== "none") {
+        preloader.style.display = "none"; 
+        document.body.classList.add("loaded"); 
+      } else {
+        console.warn("Preloader is already hidden or not visible.");
+      }
+    } else {
+      console.error("Preloader element not found.");
+    }
+  }, 2000); 
 });
 
 
@@ -38,7 +46,10 @@ const overlay = document.querySelector("[data-overlay]");
 const toggleNavbar = function () {
   navbar.classList.toggle("active");
   document.body.classList.toggle("nav-active");
-}
+};
+navTogglers.forEach(toggler => {
+  toggler.addEventListener("click", toggleNavbar);
+});
 
 
 /**
