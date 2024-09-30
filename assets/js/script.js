@@ -11,7 +11,7 @@ window.addEventListener("load", function () {
   setTimeout(() => {
     preloader.classList.add("loaded");
     document.body.classList.add("loaded");
-  }, 0); 
+  }, 2669); 
 });
 
 
