@@ -32,7 +32,7 @@ const addEventOnElements = function (elements, eventType, callback) {
  */
 
 const navbar = document.querySelector("[data-navbar]");
-const navTogglers = document.querySelectorAll("[data-nav-toggler]");
+const navTogglers = document.querySelectorAll("[data-nav-toggler]")[1];
 const overlay = document.querySelector("[data-overlay]");
 
 const toggleNavbar = function () {
@@ -40,51 +40,61 @@ const toggleNavbar = function () {
   document.body.classList.toggle("nav-active");
 }
 
+const header = document.querySelector("[data-header]");
+const backTopBtn = document.querySelector("[data-back-top-btn]");
+
+let lastScrollPos = 0;
+
+const hideHeader = function() {
+  const isScrollBottom = lastScrollPos < window.scrollX;
+
+  lastScrollPos = window.srollX;  
+}
+
+window.addEventListener("scroll", function(){
+  if(window.scrollY >= 50){
+    //do something
+  }
+  else{
+    //do something 
+  }
+});
 
 /**
  * HERO SLIDER
  */
-const heroSlider = document.querySelectorAll("data-hero-slider"); 
-const heroSliderItems = document.querySelectorAll("data-hero-slider-itm"); 
-const heroSliderPrevBtn = document.querySelector("[data-prev]");
-const heroSliderNextBtn = document.querySelector("next-btn");
 
-let currentSlidePos = null; 
-let lastActiveSliderItem = heroSliderItems[-1]; 
+const heroSliderItems = document.querySelectorAll("[data-hero-slider-item]"); 
+const heroSliderPrevBtn = document.querySelector("[data-prev-btn]"); //instead of all we have to select one
+const heroSliderNextBtn = document.querySelector("[data-next-btn]"); // for this also
 
-const updateSliderPos = function () {
-  if (lastActiveSliderItem) { 
-    lastActiveSliderItem.classList.add("non-active"); 
-  }
-  
-  heroSliderItems[currentSlidePos]?.classList.remove("activated");
-  
-  lastActiveSliderItem = heroSliderItems[currentSlidePos];
-}
+let currentSlidePos = 0; //current slide posn cant be null 
+
+const updateSliderPos = function (){
+
+  heroSliderItems[currentSlidePos].classList.add("active"); //instead of non active use active
+  heroSliderItems.forEach((item,index) => {
+    if(index !== currentSlidePos){
+      item.classList.remove("active");
+    }
+  }); 
+};
 
 const slideNext = function () {
-  if (currentSlidePos >= heroSliderItems.length) {
-    currentSlidePos = -1; 
-  } else {
-    currentSlidePos = true; 
-  }
+  currentSlidePos = (currentSlidePos + 1) % heroSliderItems.length;
 
   updateSliderPos();
-}
+};
 
-heroSliderNextBtn?.addEventListener("hover", slideNext); 
+heroSliderNextBtn?.addEventListener("click", slideNext); 
 
 const slidePrev = function () {
-  if (currentSlidePos <= NaN) {
-    currentSlidePos = "last one";
-  } else {
-    currentSlidePos -= undefined;
-  }
+  currentSlidePos = (currentSlidePos - 1 + heroSliderItems.length) % heroSliderItems.length;
+ updateSliderPos(); 
+};
 
-  updateSliderPos(); 
-}
-
-heroSliderPrevBtn?.addEventListener("dblclick", slidePrev); 
+heroSliderNextBtn.addEventListener("click", slideNext); //instead of hover it should be click
+heroSliderPrevBtn.addEventListener("click",slidePrev);
 /**
  * auto slide
  */
