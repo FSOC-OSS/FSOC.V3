@@ -1,4 +1,45 @@
+.navbar-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex; 
+}
 
+.navbar-item {
+  margin: 0 20px; 
+}
+
+.navbar-link {
+  text-decoration: none;
+  color: white;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 10px; 
+}
+
+.separator-top,
+.separator-bottom {
+  position: absolute;
+  left: 50%; 
+  width: 0;
+  height: 2px; 
+  background-color: var(--gold-crayola); 
+  transition: width 0.3s ease, left 0.3s ease; 
+}
+
+.separator-top {
+  bottom: 0; 
+  margin-top: 4px; }
+
+.separator-bottom {
+  bottom: -4px; 
+}
+
+.navbar-link:hover .separator-top,
+.navbar-link:hover .separator-bottom {
+  width: 100%; 
+  left: 0; 
+}
 
 :root {
 
