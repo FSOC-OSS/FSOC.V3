@@ -29,31 +29,6 @@ const toggleNavbar = function () {
   document.body.classList.toggle("nav-active");
 }
 
-document.querySelector(".nav-open-btn").addEventListener("click", toggleNavbar)
-document.querySelector(".close-btn").addEventListener("click", toggleNavbar)
-
-const header = document.querySelector("[data-header]");
-const backTopBtn = document.querySelector("[data-back-top-btn]");
-
-let lastScrollPos = 0;
-
-const hideHeader = function () {
-  const isScrollBottom = lastScrollPos < window.scrollX;
- 
-  lastScrollPos = window.scrollX;
-}
-
-window.addEventListener("scroll", function () {
-  if (window.scrollY >= 50) {
-    //Do something
-  } else {
-    
-    //Do something
-  }
-});
-
-
-
 /**
  * HERO SLIDER
  */
