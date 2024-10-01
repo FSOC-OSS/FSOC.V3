@@ -13,6 +13,32 @@ window.addEventListener("load", function () {
 });
 
 
+const cartCountElement = document.getElementById('cart-count');
+const cartButtons = document.querySelectorAll('.cart-btn');
+
+let cart = {};
+
+function updateCartCount() {
+  const itemCount = Object.keys(cart).length;
+  cartCountElement.textContent = itemCount;
+}
+
+cartButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const dishId = button.getAttribute('data-id');
+    
+    if (cart[dishId]) {
+      delete cart[dishId];
+      button.textContent = 'Add to Cart';
+    } else {
+      cart[dishId] = true;
+      button.textContent = 'Remove from Cart';
+    }
+
+    updateCartCount();
+  });
+});
+
 /**
  * add event listener on multiple elements
  */
