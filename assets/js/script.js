@@ -41,6 +41,9 @@ const toggleNavbar = function () {
 }
 
 
+addEventOnElements(navTogglers, "click", toggleNavbar);
+
+
 /**
  * HERO SLIDER
  */
