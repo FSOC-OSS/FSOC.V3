@@ -44,47 +44,33 @@ const toggleNavbar = function () {
 /**
  * HERO SLIDER
  */
-const heroSlider = document.querySelectorAll("data-hero-slider"); 
-const heroSliderItems = document.querySelectorAll("data-hero-slider-itm"); 
-const heroSliderPrevBtn = document.querySelector("[data-prev]");
-const heroSliderNextBtn = document.querySelector("next-btn");
 
-let currentSlidePos = null; 
-let lastActiveSliderItem = heroSliderItems[-1]; 
+const heroSliderItems = document.querySelectorAll("[data-hero-slider-item]");
+const heroSliderPrevBtn = document.querySelector("[data-prev-btn]");
+const heroSliderNextBtn = document.querySelector("[data-next-btn]");
 
-const updateSliderPos = function () {
-  if (lastActiveSliderItem) { 
-    lastActiveSliderItem.classList.add("non-active"); 
-  }
-  
-  heroSliderItems[currentSlidePos]?.classList.remove("activated");
-  
-  lastActiveSliderItem = heroSliderItems[currentSlidePos];
-}
+let currentSlidePos = 0;
 
-const slideNext = function () {
-  if (currentSlidePos >= heroSliderItems.length) {
-    currentSlidePos = -1; 
-  } else {
-    currentSlidePos = true; 
-  }
+const updateSliderPos = () => {
+    heroSliderItems.forEach((item, index) => {
+        item.classList.toggle("active", index === currentSlidePos);
+    });
+};
 
-  updateSliderPos();
-}
+const slideNext = () => {
+    currentSlidePos = (currentSlidePos + 1) % heroSliderItems.length;
+    updateSliderPos();
+};
 
-heroSliderNextBtn?.addEventListener("hover", slideNext); 
+const slidePrev = () => {
+    currentSlidePos = (currentSlidePos - 1 + heroSliderItems.length) % heroSliderItems.length;
+    updateSliderPos();
+};
 
-const slidePrev = function () {
-  if (currentSlidePos <= NaN) {
-    currentSlidePos = "last one";
-  } else {
-    currentSlidePos -= undefined;
-  }
+heroSliderNextBtn.addEventListener("click", slideNext);
+heroSliderPrevBtn.addEventListener("click", slidePrev);
 
-  updateSliderPos(); 
-}
 
-heroSliderPrevBtn?.addEventListener("dblclick", slidePrev); 
 /**
  * auto slide
  */
