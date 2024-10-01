@@ -54,16 +54,19 @@ navTogglers.forEach(toggler => {
 
 
 
-const header = document.querySelector("[data-header]");
-const backTopBtn = document.querySelector("[data-back-top-btn]");
+const backTopBtn = document.querySelector(".back-top-btn.active");
+const preloaders = document.getElementById("preload");
 
-let lastScrollPos = 0;
+backTopBtn.addEventListener("click", (event) => {
+  event.preventDefault();
+  preloaders && (preloaders.style.display = "none");
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
 
-const hideHeader = function () {
-  const isScrollBottom = lastScrollPos < window.scrollX;
- 
-  lastScrollPos = window.scrollX;
-}
+window.addEventListener("load", () => {
+  preloaders && (preloaders.style.display = "none");
+});
+
 
 window.addEventListener("scroll", function () {
   if (window.scrollY >= 50) {
@@ -164,5 +167,4 @@ window.addEventListener("mousemove", function (event) {
     y = y * Number(parallaxItems[i].dataset.parallaxSpeed);
     parallaxItems[i].style.transform = `translate3d(${x}px, ${y}px, 0px)`;
   }
-
 });
