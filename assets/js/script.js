@@ -8,10 +8,8 @@
 const preloader = document.querySelector("[data-preaload]");
 
 window.addEventListener("load", function () {
-  setTimeout(() => {
-    preloader.classList.add("loaded");
-    document.body.classList.add("loaded");
-  }, 0); 
+  preloader.classList.add("loaded");
+  document.body.classList.add("loaded");
 });
 
 
