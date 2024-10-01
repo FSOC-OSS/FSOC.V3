@@ -40,6 +40,19 @@ const toggleNavbar = function () {
   document.body.classList.toggle("nav-active");
 }
 
+//email opener xd
+const mailopen = function(event){
+  const email = event.target.getAttribute("data-email");
+  if(email){
+    window.location.href = `mailto:${email}`;
+  }
+}
+
+const emailElements = document.querySelectorAll("[data-email]");
+
+//click event now
+addEventOnElements(emailElements, "click", openMailClient);
+
 
 /**
  * HERO SLIDER
