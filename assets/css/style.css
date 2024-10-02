@@ -2055,7 +2055,7 @@ textarea.input-field {
 #blog-section {
   width: 50%;
   margin: 50px auto;
-  background-color: white;
+  background-color: #161718;
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
@@ -2083,6 +2083,7 @@ input, textarea {
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 1rem;
+  color: white;
 }
 
 button {
@@ -2118,7 +2119,7 @@ button:hover {
 }
 
 .blog-entry {
-  background: #444444;
+  background: #0e0d0c;
   padding: 15px;
   border-radius: 6px;
   margin-bottom: 10px;
@@ -2132,5 +2133,5 @@ button:hover {
 }
 .blogs{
   color: white;
-  background: #444444;
+  background: #0e0d0c;
 }
