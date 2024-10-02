@@ -23,6 +23,44 @@ const addEventOnElements = function (elements, eventType, callback) {
   }
 }
 
+// Select the cart anchor and elements
+const cartAnchor = document.getElementById("cart-anchor");
+const addToCartButtons = document.querySelectorAll(".add-to-cart");
+const removeFromCartButtons = document.querySelectorAll(".remove");
+
+let cartItemCount = 0;
+
+// Function to update cart text
+const updateCartDisplay = () => {
+  if (cartItemCount > 99) {
+    cartAnchor.querySelector(".span").textContent = "Cart 99+";
+  } else if (cartItemCount > 0) {
+    cartAnchor.querySelector(".span").textContent = `Cart ${cartItemCount}`;
+  } else {
+    cartAnchor.querySelector(".span").textContent = "Cart";
+  }
+};
+
+// Add event listeners to "Add to Cart" buttons
+addToCartButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    cartItemCount += 1;
+    updateCartDisplay();
+  });
+});
+
+// Add event listeners to "Remove" buttons
+removeFromCartButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    if (cartItemCount > 0) {
+      cartItemCount -= 1;
+      updateCartDisplay();
+    }
+  });
+});
+
+// Initialize the cart display on page load
+window.addEventListener("load", updateCartDisplay);
 
 
 /**
@@ -142,3 +180,4 @@ window.addEventListener("mousemove", function (event) {
   }
 
 });
+
