@@ -2052,3 +2052,35 @@ textarea.input-field {
   }
 
 }
+.navbar-link {
+  position: relative;
+  padding-bottom: 5px;
+}
+
+.navbar-link::before,
+.navbar-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background-color: var(--gold-crayola);
+  transition: width 0.4s ease;
+}
+
+.navbar-link::before {
+  bottom: 0;
+  left: 0;
+}
+
+.navbar-link::after {
+  bottom: -5px;
+  right: 0;
+}
+
+.navbar-link:hover::before {
+  width: 100%;
+}
+
+.navbar-link:hover::after {
+  width: 100%;
+}
