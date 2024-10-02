@@ -1,3 +1,70 @@
+document.getElementById("blogForm").addEventListener("submit", function(event) {
+  event.preventDefault(); 
+
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const description = document.getElementById("description").value;
+
+  const isValid = validateForm(name, email, description);
+
+  if (isValid) {
+    addBlogEntry(name, email, description);
+
+    document.getElementById("successMessage").textContent = "Blog submitted successfully!";
+    document.getElementById("successMessage").style.display = "block";
+
+    document.getElementById("blogForm").reset();
+
+    setTimeout(() => {
+      document.getElementById("successMessage").style.display = "none";
+    }, 2700);
+  } else {
+    alert("Error: Something is wrong!!");
+  }
+});
+
+function validateForm(name, email, description) {
+  let isCorrect = true;
+
+  if (name.trim() === "") {
+    document.getElementById("nameError").textContent = "Name is required";
+    isCorrect = false;
+  }
+
+  if (!validateEmail(email)) {
+    document.getElementById("emailError").textContent = "Please enter a valid email";
+    isCorrect = false;
+  }
+
+  if (description.trim() === "") {
+    document.getElementById("descriptionError").textContent = "Description is required";
+    isCorrect = false;
+  }
+
+  return isCorrect;
+}
+// adding the entries and appending it in the div...
+function addBlogEntry(name, email, description) {
+  const blogList = document.getElementById("blogList");
+
+  const blogEntry = document.createElement("div");
+  blogEntry.classList.add("blog-entry");
+
+
+  blogEntry.innerHTML = `
+      <h4>Name:${name}   <br>Email:(${email})</h4>
+      <p>Description: ${description}</p>
+  `;
+
+
+  blogList.appendChild(blogEntry);
+}
+
+function validateEmail(email) {
+  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; 
+  return re.test(email);
+}
+
 
 /**
  * PRELOAD

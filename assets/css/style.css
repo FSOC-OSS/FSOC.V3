@@ -2052,3 +2052,86 @@ textarea.input-field {
   }
 
 }
+#blog-section {
+  width: 50%;
+  margin: 50px auto;
+  background-color: #161718;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+h2, h3 {
+  text-align: center;
+  color: white;
+
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  color: white;
+}
+
+button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.875rem;
+}
+
+.success-message {
+  color: green;
+  text-align: center;
+  font-size: 1rem;
+  display: none;
+}
+
+#blogList {
+  margin-top: 20px;
+}
+
+.blog-entry {
+  background: #0e0d0c;
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  color: white;
+  display: grid;
+  padding-left: 100px;
+}
+
+.blog-entry h4, .blog-entry p {
+  margin: 0 0 10px;
+}
+.blogs{
+  color: white;
+  background: #0e0d0c;
+}
