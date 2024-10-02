@@ -29,6 +29,7 @@
     - custom css link
   -->
   <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
   <!-- 
     - preload images
@@ -167,7 +168,13 @@
               <span class="span">Contact</span>
             </a>
           </li>
+          <li>
+            <div class="cart-icon">
+              <span id="cart-count">0</span> 
+              <i class="fas fa-shopping-cart"></i> 
+            </div>
 
+          </li>
         </ul>
 
         <div class="text-center">
@@ -210,7 +217,16 @@
     </div>
   </header>
 
-
+  <div id="cartNewWindow" class="NewWindow">
+    <div class="NewWindow-content">
+        <div class="NewWindow-header">
+            <span>Your Cart</span>
+            <span class="NewWindow-close" id="closeNewWindow">&times;</span>
+        </div>
+        <div id="cartItems"></div>
+        <div id="cartTotal" class="total-price"></div>
+    </div>
+</div>
 
   <main>
     <article>
@@ -546,7 +562,7 @@
 
                 <div>
 
-                  <div class="title-wrapper">
+                  <div class="title-wrapper Menu1">
                     <h3 class="title-3">
                       <a href="#" class="card-title">Greek Salad</a>
                     </h3>
@@ -555,7 +571,7 @@
 
                     <span class="span title-2">$25.50</span>
                   </div>
-
+                  <button class="cart-btn" data-id="1">Add to Cart</button>
                   <p class="card-text label-1">
                     Tomatoes, green bell pepper, sliced cucumber onion, olives, and feta cheese.
                   </p>
@@ -582,7 +598,7 @@
 
                     <span class="span title-2">$40.00</span>
                   </div>
-
+                  <button class="cart-btn" data-id="2">Add to Cart</button>
                   <p class="card-text label-1">
                     Vegetables, cheeses, ground meats, tomato sauce, seasonings and spices
                   </p>
@@ -609,7 +625,7 @@
 
                     <span class="span title-2">$10.00</span>
                   </div>
-
+                  <button class="cart-btn" data-id="3">Add to Cart</button>
                   <p class="card-text label-1">
                     Butternut Squash, Olive Oil, Garlic, Thyme, Black Pepper
                   </p>
@@ -638,7 +654,7 @@
 
                     <span class="span title-2">$39.00</span>
                   </div>
-
+                  <button class="cart-btn" data-id="4">Add to Cart</button>
                   <p class="card-text label-1">
                     Vegetables, cheeses, ground meats, tomato sauce, seasonings and spices.
                   </p>
@@ -665,7 +681,7 @@
 
                     <span class="span title-2">$25.00</span>
                   </div>
-
+                  <button class="cart-btn" data-id="5">Add to Cart</button>
                   <p class="card-text label-1">
                     Avocados with crab meat, red onion, crab salad stuffed red bell pepper and green bell pepper.
                   </p>
@@ -692,7 +708,7 @@
 
                     <span class="span title-2">$49.00</span>
                   </div>
-
+                  <button class="cart-btn" data-id="6">Add to Cart</button>
                   <p class="card-text label-1">
                     Vegetables, cheeses, ground meats, tomato sauce, seasonings and spices
                   </p>
