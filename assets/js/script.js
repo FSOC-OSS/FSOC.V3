@@ -8,19 +8,14 @@
 const preloader = document.querySelector("[data-preaload]");
 
 window.addEventListener("load", function () {
-  setTimeout(() => {
-    if (preloader) {
-      if (preloader.style.display !== "none" && window.getComputedStyle(preloader).display !== "none") {
-        preloader.style.display = "none"; 
-        document.body.classList.add("loaded"); 
-      } else {
-        console.warn("Preloader is already hidden or not visible.");
-      }
-    } else {
-      console.error("Preloader element not found.");
-    }
-  }, 2000); 
-});
+setTimeout(() => {
+  if (preloader) {
+    preloader.style.display = "none";
+    document.body.classList.add("loaded");
+  } else {
+    console.error("Preloader element not found.");
+  }
+}, 2000);
 
 
 /**
@@ -54,6 +49,7 @@ navTogglers.forEach(toggler => {
 
 
 
+
 const backTopBtn = document.querySelector(".back-top-btn.active");
 const preloaders = document.getElementById("preload");
 
@@ -67,7 +63,6 @@ window.addEventListener("load", () => {
   preloaders && (preloaders.style.display = "none");
 });
 
-
 window.addEventListener("scroll", function () {
   if (window.scrollY >= 50) {
     //Do something
@@ -77,6 +72,11 @@ window.addEventListener("scroll", function () {
   }
 });
 
+
+const emailElements = document.querySelectorAll("[data-email]");
+
+//click event now
+addEventOnElements(emailElements, "click", openMailClient);
 
 
 /**
