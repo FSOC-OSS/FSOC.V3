@@ -38,6 +38,28 @@ const toggleNavbar = function () {
   document.body.classList.toggle("nav-active");
 }
 
+// Change from here scroll issue
+const header = document.querySelector("[data-header]");
+const backTopBtn = document.querySelector(".back-top-btn"); // use class selector instead of attribute
+
+
+// Add Event Listener and function to button
+backTopBtn.addEventListener("click",() => {
+  window.scrollTo({
+    top:0,
+    behaviour:'smooth'
+  })
+});
+
+//to here
+let lastScrollPos = 0;
+
+const hideHeader = function () {
+  const isScrollBottom = lastScrollPos < window.scrollX;
+ 
+  lastScrollPos = window.scrollX;
+}
+
 //email opener xd
 const mailopen = function(event){
   const email = event.target.getAttribute("data-email");
