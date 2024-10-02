@@ -541,6 +541,17 @@ body.nav-active { overflow: hidden; }
 /*-----------------------------------*\
   #HEADER
 \*-----------------------------------*/
+.cart-icon{
+  display: flex;
+  gap: 10px;
+  cursor: pointer;
+}
+span#cart-count {
+  transform: translateY(8px);
+}
+i.fas.fa-shopping-cart {
+  transform: translateY(15px);
+}
 
 .header .btn { display: none; }
 
@@ -708,7 +719,26 @@ body.nav-active { overflow: hidden; }
   opacity: 1;
   pointer-events: all;
 }
-
+cart-icon{
+  display: flex;
+  gap: 10px;
+  cursor: pointer;
+}
+span#cart-count {
+  transform: translateY(8px);
+}
+i.fas.fa-shopping-cart {
+  transform: translateY(15px);
+}
+.cart-btn{
+  transform: translate(75rem,-13px);
+  }
+  button.cart-btn {
+    font-size: 2rem;
+    background-color: rgb(46, 41, 41);
+    color: rgb(182, 169, 169);
+    height: 0px;
+  }
 
 
 

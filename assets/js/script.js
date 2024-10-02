@@ -1,4 +1,78 @@
+const cartCountElement = document.getElementById('cart-count');
+const cartButtons = document.querySelectorAll('.cart-btn');
 
+let cart = {};
+
+function updateCartCount() {
+  const itemCount = Object.keys(cart).length;
+  cartCountElement.textContent = itemCount;
+}
+
+cartButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const dishId = button.getAttribute('data-id');
+
+    if (cart[dishId]) {
+      delete cart[dishId];
+      button.textContent = 'Add to Cart';
+    } else {
+      cart[dishId] = true;
+      button.textContent = 'Remove from Cart';
+    }
+
+    updateCartCount();
+  });
+});
+document.getElementsByClassName('cart-icon')[0].addEventListener('click',()=> {
+  // Open a new window
+  const newWindow = window.open('', '_blank', 'width=600,height=400');
+
+  // Add HTML content to the new window
+  newWindow.document.write(`
+    <html>
+    <head>
+      <title>Your Cart</title>
+      <link rel="stylesheet" href="./assets/css/style.css">
+      
+    </head>
+    <body>
+      <h2>Your Cart</h2>
+      <li>
+      <div class="menu-card hover:card">
+
+        <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
+          <img src="./assets/images/menu-1.png" width="100" height="100" loading="lazy" alt="Greek Salad"
+            class="img-cover">
+        </figure>
+
+        <div>
+
+          <div class="title-wrapper Menu1">
+            <h3 class="title-3">
+              <a href="#" class="card-title">Greek Salad</a>
+            </h3>
+
+            <span class="badge label-1">Seasonal</span>
+
+            <span class="span title-2">$25.50</span>
+          </div>
+          <button class="cart-btn" data-id="1">Add to Cart</button>
+          <p class="card-text label-1">
+            Tomatoes, green bell pepper, sliced cucumber onion, olives, and feta cheese.
+          </p>
+
+        </div>
+
+      </div>
+    </li>
+    </body>
+    </html>
+  `);
+
+  newWindow.document.body.appendChild(newDiv);
+  // Focus on the new window
+  newWindow.focus();
+});
 /**
  * PRELOAD
  * 
