@@ -12,6 +12,22 @@ window.addEventListener("load", function () {
   document.body.classList.add("loaded");
 });
 
+//corrected links
+
+let source = [
+  "https://facebook.com",
+  "https://instagram.com",
+  "https://twitter.com",
+  "https://youtube.com",
+  "https://maps.google.com"
+];
+let links = document.getElementsByClassName("footer-list")[1];
+console.log(links)
+let linkItems = Array.from(links.getElementsByTagName('a')); 
+linkItems.forEach((link,index) => {
+   link.setAttribute("href", source[index]); 
+});
+
 
 /**
  * add event listener on multiple elements
