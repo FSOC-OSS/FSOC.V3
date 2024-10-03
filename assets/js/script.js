@@ -165,3 +165,25 @@ links.forEach(link => {
   listItem.appendChild(linkElement);
   linkContainer.appendChild(listItem);
 });
+
+/**
+ * BLOG-POST
+ */
+function storeFormEntries() {
+  const nameInput = document.getElementById("name");
+  const emailInput = document.getElementById("email");
+  const commentInput = document.getElementById("comment");   
+
+
+  const name = nameInput.value;
+  const email = emailInput.value;
+  const comment = commentInput.value;
+  localStorage.setItem("name", name);
+  localStorage.setItem("email", email);
+  localStorage.setItem("comment", comment);
+  nameInput.value = "";
+  emailInput.value = "";
+  commentInput.value = "";
+
+  alert("Entries stored successfully!");
+}
