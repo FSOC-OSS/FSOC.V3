@@ -23,6 +23,18 @@ const addEventOnElements = function (elements, eventType, callback) {
   }
 }
 
+let youtube = "https://www.youtube.com";
+let instagram = "https://www.instagram.com";
+let twitter = "https://www.x.com";
+let maps = "https://maps.google.com";
+let facebook = 'https://www.facebook.com';
+
+document.querySelector("#twt").setAttribute('href', twitter);
+document.querySelector("#utube").setAttribute('href', youtube);
+document.querySelector("#map").setAttribute('href', maps);
+document.querySelector("#instagram").setAttribute('href', instagram);
+document.querySelector("#facebook").setAttribute('href', facebook);
+
 // Select the cart anchor and elements
 const cartAnchor = document.getElementById("cart-anchor");
 const addToCartButtons = document.querySelectorAll(".add-to-cart");
@@ -63,6 +75,8 @@ removeFromCartButtons.forEach(button => {
 window.addEventListener("load", updateCartDisplay);
 
 
+
+
 /**
  * NAVBAR
  */
@@ -88,7 +102,6 @@ const emailElements = document.querySelectorAll("[data-email]");
 
 //click event now
 addEventOnElements(emailElements, "click", openMailClient);
-
 
 /**
  * HERO SLIDER
@@ -151,8 +164,7 @@ addEventOnElements([heroSliderNextBtn, heroSliderPrevBtn], "mouseover", function
 });
 
 addEventOnElements([heroSliderNextBtn, heroSliderPrevBtn], "mouseout", autoSlide);
-
-window.addEventListener("load", autoSlide);
+w.addEventListener("load", autoSlide);
 
 
 
