@@ -1,3 +1,31 @@
+document.getElementById("blogForm").addEventListener("submit", function(event) {
+  event.preventDefault(); 
+
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const description = document.getElementById("description").value;
+
+  if (name.trim() !== "" && email.trim() !== "" && description.trim() !== "") {
+    addBlogEntry(name, email, description);
+    document.getElementById("blogForm").reset(); 
+  }
+});
+
+function addBlogEntry(name, email, description) {
+  const blog = document.getElementById("blog");
+
+  const blogEntry = document.createElement("div");
+  blogEntry.classList.add("blog-entry");
+
+  blogEntry.innerHTML = `
+      <h4 style="color: light-gray">${name}   <br>(${email})</h4>
+      <p>Post: ${description}</p>
+  `;
+
+  blog.appendChild(blogEntry);
+}
+
+
 
 /**
  * PRELOAD

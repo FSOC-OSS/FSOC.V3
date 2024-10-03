@@ -2088,40 +2088,86 @@ textarea.input-field {
 
 }
 
-.footer-list .footer-link {
-  position: relative;
-  display: inline-block;
-  padding-bottom: 2px; 
-  transition: color 0.3s ease-in-out; 
+#blog-section {
+  width: 50%;
+  margin: 50px auto;
+  background-color: #444444;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 4px; 
 }
 
-.footer-list .footer-link::before,
-.footer-list .footer-link::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  width: 0; 
-  height: 2px;
-  background-color: #000;
-  transition: width 0.4s ease, left 0.4s ease, background-color 0.3s ease-in-out;
+.blogListhead{
+  color: var(--gold-crayola);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--letterSpacing-1);
+  margin-left:  3%;
+  padding-top: 40px;
 }
 
-.footer-list .footer-link::before {
-  transform: translateY(-4px); 
+.bloghead{
+  color: var(--gold-crayola);
+  text-align: center;
+} 
+
+.form-group {
+  margin-bottom: 15px;
 }
 
-.footer-list .footer-link::after {
-  transform: translateY(4px);
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #555;
 }
 
-.footer-list .footer-link:hover::before,
-.footer-list .footer-link:hover::after {
-  width: 100%; 
-  left: 0; 
-  background-color: #e4c491; 
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  background-color: #232327;
+  border: 1px solid #e8c494;
+  color: white;
+  border-radius: 4px;
+  font-size: 2rem;
 }
 
-.footer-list .footer-link:hover {
-  color: #e4c491; 
+button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  color: #444444;
+  border: none;
+  font-size: 1rem;
+}
+
+
+#blog {
+  margin-top: 20px;
+}
+
+.blog-entry {
+  background: #444444;
+  padding: 15px;
+  margin-bottom: 10px;
+  color: white;
+  display: grid;
+  padding-left: 100px;
+  border-bottom: 3px solid #e8c494;
+}
+
+.blog-entry h4{
+  margin: 0 0 10px;
+}
+.blog-entry p{
+  margin: 0 0 10px;
+  font-size: 25px;
+}
+.blogs{
+  color: #444444;
+  background: #444444;
+}
+.blogLabel{
+  color: var(--gold-crayola);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--letterSpacing-1);
+  line-height: 14px;
 }
