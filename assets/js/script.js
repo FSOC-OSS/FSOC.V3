@@ -3,7 +3,20 @@
  * PRELOAD
  * 
  * loading will be end after document is loaded
+ * 
  */
+let count_= document.getElementById("count");
+
+let count=0;
+const addToCartButton = document.querySelectorAll('.add-to-cart-button button');
+console.log(addToCartButton)
+addToCartButton.forEach((i)=>{
+  i.addEventListener('click', () => {
+  count_.innerHTML= ++count;
+})
+
+})
+
 
 const preloader = document.querySelector("[data-preaload]");
 
@@ -39,17 +52,8 @@ const toggleNavbar = function () {
 }
 
 //email opener xd
-const mailopen = function(event){
-  const email = event.target.getAttribute("data-email");
-  if(email){
-    window.location.href = `mailto:${email}`;
-  }
-}
 
-const emailElements = document.querySelectorAll("[data-email]");
 
-//click event now
-addEventOnElements(emailElements, "click", openMailClient);
 
 
 /**
@@ -142,3 +146,9 @@ window.addEventListener("mousemove", function (event) {
   }
 
 });
+
+
+
+
+
+
