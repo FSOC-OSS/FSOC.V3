@@ -142,3 +142,26 @@ window.addEventListener("mousemove", function (event) {
   }
 
 });
+
+/**
+ * FOOTER LINKS
+ */
+const footerSection = document.querySelector('.footer-top');
+const linkContainer = footerSection.querySelector('ul');
+
+const links = [
+  { text: 'Facebook', href: 'https://www.facebook.com' },
+  { text: 'Instagram', href: 'https://www.instagram.com' },
+  { text: 'Twitter', href: 'https://twitter.com' },
+  { text: 'YouTube', href: 'https://www.youtube.com' },
+  { text: 'Google Map', href: 'https://www.google.com/maps' }
+];
+
+links.forEach(link => {
+  const listItem = document.createElement('li');
+  const linkElement = document.createElement('a');
+  linkElement.textContent = link.text;
+  linkElement.href = link.href;
+  listItem.appendChild(linkElement);
+  linkContainer.appendChild(listItem);
+});
