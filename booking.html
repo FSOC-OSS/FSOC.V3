@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book a Table</title>
+  <style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #161718;
+    color: #e0e0e0;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+  }
+
+
+  .reservation-container {
+    background-color: #302e2e;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    max-width: 400px;
+    width: 100%;
+  }
+
+
+  h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #bb86fc;
+    font-size: 24px;
+  }
+
+ 
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #e0e0e0;
+    font-size: 14px;
+  }
+
+
+  input {
+    width: 100%;
+    padding: 12px;
+    background-color: #333;
+    color: #e0e0e0;
+    border: 1px solid #555;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+  }
+
+  input:focus {
+    border-color: #86fca4;
+    outline: none;
+  }
+
+  button {
+    width: 100%;
+    padding: 14px;
+    background-color: #bb86fc;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  button:hover {
+    background-color: #9b62f2;
+  }
+
+  .cost-display {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #03dac6;
+    display: none;
+  }
+
+</style>
+</head>
+<body>
+
+  <h2>Table Reservation</h2>
+
+  <form id="reservation-form">
+    <label for="dining-time">Preferred Dining Time:</label>
+    <input type="time" id="dining-time" required>
+
+    <label for="seats">Number of Seats:</label>
+    <input type="number" id="seats" min="1" max="10" required>
+
+    <button type="submit" class="btn">Calculate Estimated rupees</button>
+  </form>
+
+  <div class="rupees-display" id="rupees-display"></div>
+
+  <script>
+    document.getElementById('reservation-form').addEventListener('submit', function(e) {
+      e.preventDefault(); 
+
+      const seats = document.getElementById('seats').value;
+      
+      const estimatedrupees = Math.floor(Math.random() * 1000) + 200;
+
+      document.getElementById('rupees-display').textContent = `Estimated rupees: ₹${estimatedrupees} for ${seats} seats`;
+    });
+  </script>
+
+</body>
+</html>
