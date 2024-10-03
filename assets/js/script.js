@@ -23,6 +23,58 @@ const addEventOnElements = function (elements, eventType, callback) {
   }
 }
 
+let youtube = "https://www.youtube.com";
+let instagram = "https://www.instagram.com";
+let twitter = "https://www.x.com";
+let maps = "https://maps.google.com";
+let facebook = 'https://www.facebook.com';
+
+document.querySelector("#twt").setAttribute('href', twitter);
+document.querySelector("#utube").setAttribute('href', youtube);
+document.querySelector("#map").setAttribute('href', maps);
+document.querySelector("#instagram").setAttribute('href', instagram);
+document.querySelector("#facebook").setAttribute('href', facebook);
+
+// Select the cart anchor and elements
+const cartAnchor = document.getElementById("cart-anchor");
+const addToCartButtons = document.querySelectorAll(".add-to-cart");
+const removeFromCartButtons = document.querySelectorAll(".remove");
+
+let cartItemCount = 0;
+
+// Function to update cart text
+const updateCartDisplay = () => {
+  if (cartItemCount > 99) {
+    cartAnchor.querySelector(".span").textContent = "Cart 99+";
+  } else if (cartItemCount > 0) {
+    cartAnchor.querySelector(".span").textContent = `Cart ${cartItemCount}`;
+  } else {
+    cartAnchor.querySelector(".span").textContent = "Cart";
+  }
+};
+
+// Add event listeners to "Add to Cart" buttons
+addToCartButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    cartItemCount += 1;
+    updateCartDisplay();
+  });
+});
+
+// Add event listeners to "Remove" buttons
+removeFromCartButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    if (cartItemCount > 0) {
+      cartItemCount -= 1;
+      updateCartDisplay();
+    }
+  });
+});
+
+// Initialize the cart display on page load
+window.addEventListener("load", updateCartDisplay);
+
+
 
 
 /**
@@ -50,7 +102,6 @@ const emailElements = document.querySelectorAll("[data-email]");
 
 //click event now
 addEventOnElements(emailElements, "click", openMailClient);
-
 
 /**
  * HERO SLIDER
@@ -113,8 +164,7 @@ addEventOnElements([heroSliderNextBtn, heroSliderPrevBtn], "mouseover", function
 });
 
 addEventOnElements([heroSliderNextBtn, heroSliderPrevBtn], "mouseout", autoSlide);
-
-window.addEventListener("load", autoSlide);
+w.addEventListener("load", autoSlide);
 
 
 
@@ -142,3 +192,4 @@ window.addEventListener("mousemove", function (event) {
   }
 
 });
+

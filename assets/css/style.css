@@ -264,6 +264,17 @@ body.nav-active { overflow: hidden; }
   margin-inline: auto;
 }
 
+/* Cart anchor styling */
+#cart-anchor {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+#cart-anchor:hover .span {
+  color: var(--gold-crayola); /* Similar hover effect as other items */
+}
+
 .contact-number::after { bottom: -5px; }
 
 .text-center { text-align: center; }
@@ -303,6 +314,11 @@ body.nav-active { overflow: hidden; }
   padding: 12px 45px;
   overflow: hidden;
   z-index: 1;
+  
+  
+}
+.menu-card .add-to-cart {
+  margin-left: 15px; /* Adds space between price and button */
 }
 
 .btn::before {
@@ -992,9 +1008,28 @@ body.nav-active { overflow: hidden; }
 
 .menu-card {
   display: flex;
-  align-items: flex-start;
-  gap: 20px;
+  /* align-items: flex-start; */
+  /* gap: 20px; */
 }
+.menu-card {
+  display: grid;
+  grid-template-columns: 150px 500px 300px 300px;
+  grid-template-rows: auto;  /* Two equal columns */
+  /* height: 50px; */
+  row-gap: 5px;
+  gap: 20px;  /* Gap between the columns */
+  align-items: center; /* Aligns buttons vertically */
+}
+
+/* .menu-card .btn {
+  width: 150px;
+  text-align: center;
+} */
+
+/* .menu-card .title-wrapper {
+  margin-bottom: 15px;
+} */
+
 
 .hover\:card .card-banner { background-color: var(--gold-crayola); }
 
@@ -2051,4 +2086,42 @@ textarea.input-field {
     left: 0;
   }
 
+}
+
+.footer-list .footer-link {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 2px; 
+  transition: color 0.3s ease-in-out; 
+}
+
+.footer-list .footer-link::before,
+.footer-list .footer-link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0; 
+  height: 2px;
+  background-color: #000;
+  transition: width 0.4s ease, left 0.4s ease, background-color 0.3s ease-in-out;
+}
+
+.footer-list .footer-link::before {
+  transform: translateY(-4px); 
+}
+
+.footer-list .footer-link::after {
+  transform: translateY(4px);
+}
+
+.footer-list .footer-link:hover::before,
+.footer-list .footer-link:hover::after {
+  width: 100%; 
+  left: 0; 
+  background-color: #e4c491; 
+}
+
+.footer-list .footer-link:hover {
+  color: #e4c491; 
 }
