@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book a Table</title>
+  <style>
+    h2 {
+      font-size: 40px;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: hsla(30, 3%, 34%, 1);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    #booking-section {
+      padding: 150px;
+      background-color: hsl(38, 61%, 73%);
+      border-radius: 15px;
+      width: 800px;
+      box-shadow: 0 0 30px hsla(0, 3%, 7%, 1);
+      text-align: center;
+    }
+
+    .input-wrapper {
+      margin-bottom: 20px;
+    }
+
+    .input-field {
+      width: 100%;
+      padding: 20px;
+      border-radius: 25px;
+      margin-right: 20px;
+      border: 1px solid #ddd;
+      background-color: #555;
+      color: white;
+    }
+
+    .btn {
+      background-color: #e8a817;
+      color: #333;
+      padding: 15px 20px;
+      border: none;
+      margin-top: 25px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .btn:hover {
+      background-color: #ffd700;
+    }
+
+    #estimated-cost {
+      margin-top: 20px;
+      font-size: 24px;
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+  <section id="booking-section">
+    <h2>Book a Table</h2>
+    <form id="booking-form">
+      <div class="input-wrapper">
+        <input type="time" id="dining-time" name="dining-time" placeholder="Preferred Dining Time" class="input-field" required>
+      </div>
+      <div class="input-wrapper">
+        <input type="number" id="seats" name="seats" placeholder="Number of Seats" class="input-field" required min="1">
+      </div>
+      <button type="submit" class="btn">Get Estimated Cost</button>
+    </form>
+    <div id="estimated-cost"></div>
+  </section>
+
+  <script>
+    document.getElementById('booking-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const seats = document.getElementById('seats').value;
+      const estimatedCost = Math.floor(Math.random() * 100 + 50) * seats;
+      document.getElementById('estimated-cost').innerText = `Estimated Cost: $${estimatedCost}`;
+    });
+  </script>
+</body>
+
+</html>
