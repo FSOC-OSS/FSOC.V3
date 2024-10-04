@@ -24,7 +24,67 @@ const addEventOnElements = function (elements, eventType, callback) {
 }
 
 
+const phoneInput = document.getElementById('number');
+const phoneErrorMessage = document.getElementById('phone-error-message');
 
+// Event listener for phone number input
+phoneInput.addEventListener('input', function() {
+    let phoneNumber = phoneInput.value;
+    const firstChar = phoneNumber.charAt(0);
+    const illegalChars = /[^0-9+\- ]/;  // Allows numbers, +, -, and spaces only
+    const multipleDashes = /--+/;  // Matches two or more consecutive dashes
+
+    // Remove spaces and "-" for length check
+    const strippedNumber = phoneNumber.replace(/[\s\-]/g, '');
+
+    // Reset error message
+    phoneErrorMessage.style.display = 'none';
+    phoneErrorMessage.textContent = '';
+
+    // Check for invalid "-" at the start or consecutive dashes
+    if (firstChar === '-' || multipleDashes.test(phoneNumber)) {
+        phoneErrorMessage.style.display = 'block';
+        phoneErrorMessage.textContent = "Invalid Phone Number!";
+        return;  // Stop further validation
+    }
+
+    // Check if the first character is "+" and adjust the max length dynamically
+    if (firstChar === "+") {
+        phoneInput.maxLength = 17;  // Adjust maxLength to allow for spaces and dashes
+        if (strippedNumber.length < 12 || strippedNumber.length > 14) {
+            phoneErrorMessage.style.display = 'block';
+            phoneErrorMessage.textContent = "Phone number must have 10 digits.";
+        }
+    } else {
+        phoneInput.maxLength = 13;  // Adjust maxLength to allow for spaces and dashes
+        if (strippedNumber.length !== 10) {
+            phoneErrorMessage.style.display = 'block';
+            phoneErrorMessage.textContent = "Phone number must have 10 digits.";
+        }
+    }
+
+    // Check for illegal characters (anything other than 0-9, +, -, and space)
+    for (let char of phoneNumber) {
+        if (illegalChars.test(char) || (char === "+" && phoneNumber.indexOf(char) !== 0)) {
+            phoneErrorMessage.style.display = 'block';
+            phoneErrorMessage.textContent = `'${char}' is not valid!`;
+            break;
+        }
+    }
+});
+
+
+
+const numberOfPeopleInput = document.getElementById('people');
+    const estimatedCostMessage = document.getElementById('estimated-cost-message');
+
+    numberOfPeopleInput.addEventListener('input', () => {
+        const numberOfPeople = parseInt(numberOfPeopleInput.value) || 0;
+        const costPerPerson = 20; // Example cost per person
+        const totalCost = numberOfPeople * costPerPerson;
+
+        estimatedCostMessage.innerHTML = `Estimated Cost: $${totalCost}`;
+    });
 /**
  * NAVBAR
  */
