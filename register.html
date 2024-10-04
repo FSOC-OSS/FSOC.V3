@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grilli - Login</title>
+    <title>Grilli - Register</title>
       <!-- 
     - favicon
   -->
@@ -31,15 +31,28 @@
 </head>
 <body>
     <section id="login-page">
-        <h2 class="loginhead">Login</h2>
-        <form id="loginForm">
+        <h2 class="loginhead">Create a new Account</h2>
+        <form id="regForm">
+            <div class="form-group"></div>
+                <label for="name"><span class="loginLabel">Name</span></label>
+                <input type="name" id="name" name="name" placeholder="Firstname LastName" required>
+            </div>
+            <div class="form-group"></div>
+                <label for="residence"><span class="loginLabel">Place of Residence</span></label>
+                <textarea type="residence" id="residence" name="residence" rows="4" style="resize: none;" required></textarea>
+            </div>
+            <div class="form-group"></div>
+                <label for="number"><span class="loginLabel">Phone Number</span></label>
+                <input type="tel" id="number" name="number" pattern="[0-9]{10}" minlength="10" maxlength="10" required>
+                <p id="phone-error-message" style="color: yellow; display: none;"></p>
+            </div>
             <div class="form-group">
                 <label for="email"><span class="loginLabel">E-mail</span></label>
                 <input type="email" id="email" name="email" placeholder="username@email.com" required>
             </div>
             <div class="form-group">
                 <label for="password"><span class="loginLabel">Password</span></label>
-                <input type="password" id="description" name="description" pattern="[a-zA-Z0-9]{8,12}" minlength="8" maxlength="15" required></input>
+                <input type="password" id="description" name="description" pattern='[a-zA-Z0-9!@#$%^&*(),.?":{}|<>]{8,12}' minlength="8" maxlength="15" required></input>
             </div>
             <div id="password-label"><p id="password-strength" style="display: none;">Password Strength: </p><div><p ><span id="strength-text" style="display: none;">Weak</span></p></div></div>
             <div id="password-criteria" style="display: none;">
@@ -51,17 +64,20 @@
                   <li id="symbol-criteria" >• Must contain at least one symbol</li>
               </ul>
           </div>
-          
-          
-          
+            <div class="form-group"></div>
+                <label for="re-password"><span class="loginLabel">Re-enter Password</span></label>
+                <input type="re-password" id="re-password" name="description" required></input>
+                <p id="password-match-message" style="color: yellow; display: none;">Passwords do not match!</p>
+            </div>
+
           <div id="submit-button">
             <button class="btn btn-secondary" type="submit">
-              <span class="text text-1">Login</span>
-              <span class="text text-2" aria-hidden="true">Login</span>
+              <span class="text text-1">Register</span>
+              <span class="text text-2" aria-hidden="true">Register</span>
             </button>
           </div>
           <hr class="divider">
-          <div class="doregister">Don't have an account? <a href="register.html" class="register">Sign Up</a></div>
+          <div class="doregister">Already have an account? <a href="login.html" class="register">Login</a></div>
         </form>
       </section>
       <script src="./assets/js/script.js"></script>

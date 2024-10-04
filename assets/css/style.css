@@ -166,7 +166,7 @@ body {
   font-size: var(--fontSize-body-4);
   font-weight: var(--weight-regular);
   line-height: var(--lineHeight-5);
-  overflow: hidden;
+  /* overflow: hidden; */
   height: 300vh;
 }
 
@@ -2094,4 +2094,25 @@ input, textarea {
   justify-content: center;
   padding-top: 3%;
   width: 100%;
+}
+
+hr.divider{
+  border-top: 1px solid var(--gold-crayola);
+  margin-top: 3%;
+}
+
+.doregister{
+  justify-content: center;
+  display: flex;
+  align-items: flex-start;
+  gap: 5px;
+  padding-top: 2%;
+}
+
+.register{
+  color: var(--gold-crayola);
+}
+
+#regForm{
+  margin-top: 1%;
 }
