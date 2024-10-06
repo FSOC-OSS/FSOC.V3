@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grilli - Login</title>
+      <!-- 
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+
+  <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Forum&display=swap" rel="stylesheet">
+
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!-- 
+    - preload images
+  -->
+  <link rel="preload" as="image" href="./assets/images/hero-slider-1.jpg">
+  <link rel="preload" as="image" href="./assets/images/hero-slider-2.jpg">
+  <link rel="preload" as="image" href="./assets/images/hero-slider-3.jpg">
+
+</head>
+<body>
+    <section id="login-page">
+        <h2 class="loginhead">Login</h2>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="email"><span class="loginLabel">E-mail</span></label>
+                <input type="email" id="email" name="email" placeholder="username@email.com" required>
+            </div>
+            <div class="form-group">
+                <label for="password"><span class="loginLabel">Password</span></label>
+                <input type="password" id="description" name="description" pattern="[a-zA-Z0-9]{8,12}" minlength="8" maxlength="15" required></input>
+            </div>
+            <div id="password-label"><p id="password-strength" style="display: none;">Password Strength: </p><div><p ><span id="strength-text" style="display: none;">Weak</span></p></div></div>
+            <div id="password-criteria" style="display: none;">
+              <ul>
+                  <li id="length-criteria" >• Password must be at least 8 characters long</li>
+                  <li id="uppercase-criteria" >• Must contain at least one uppercase letter</li>
+                  <li id="lowercase-criteria">• Must contain at least one lowercase letter</li>
+                  <li id="number-criteria" >• Must contain at least one number</li>
+                  <li id="symbol-criteria" >• Must contain at least one symbol</li>
+              </ul>
+          </div>
+          
+          
+          
+          <div id="submit-button">
+            <button class="btn btn-secondary" type="submit">
+              <span class="text text-1">Login</span>
+              <span class="text text-2" aria-hidden="true">Login</span>
+            </button>
+          </div>
+          <hr class="divider">
+          <div class="doregister">Don't have an account? <a href="register.html" class="register">Sign Up</a></div>
+        </form>
+      </section>
+      <script src="./assets/js/script.js"></script>
+      <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
