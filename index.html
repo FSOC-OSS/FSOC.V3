@@ -1200,3 +1200,18 @@
 </body>
 
 </html>
+<section class="blog-section">
+  <h1>Submit Your Blog</h1>
+
+  <!-- Blog Submission Form -->
+  <form id="blogForm" class="blog-form">
+    <input type="text" id="name" placeholder="Your Name" class="input-field" required>
+    <input type="email" id="email" placeholder="Your Email" class="input-field" required>
+    <textarea id="description" placeholder="Write your blog here..." class="input-field" required></textarea>
+    <button type="submit" class="btn">Submit Blog</button>
+    <p id="formMessage" class="form-message"></p>
+  </form>
+
+  <!-- Rendered Blogs Section -->
+  <div id="blogPosts" class="blog-posts"></div>
+</section>

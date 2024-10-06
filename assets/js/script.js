@@ -142,3 +142,30 @@ window.addEventListener("mousemove", function (event) {
   }
 
 });
+document.getElementById('blogForm').addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const description = document.getElementById('description').value;
+  const blogPosts = document.getElementById('blogPosts');
+  const formMessage = document.getElementById('formMessage');
+
+  if (name && email && description) {
+    const blogPost = document.createElement('div');
+    blogPost.classList.add('blog-post');
+
+    blogPost.innerHTML = `
+      <h3>${name}</h3>
+      <p><strong>Email:</strong> ${email}</p>
+      <p>${description}</p>
+    `;
+
+    blogPosts.prepend(blogPost);
+
+    document.getElementById('blogForm').reset();
+
+    formMessage.textContent = 'Blog submitted successfully!';
+    setTimeout(() => formMessage.textContent = '', 3000);
+  }
+});
