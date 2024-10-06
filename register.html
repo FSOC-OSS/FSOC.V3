@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register</title>
+  <style>
+    h2 {
+      font-size: 40px;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: hsla(30, 3%, 34%, 1);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    #register-section {
+      padding: 150px;
+      background-color: hsl(38, 61%, 73%);
+      border-radius: 15px;
+      width: 800px;
+      box-shadow: 0 0 30px hsla(0, 3%, 7%, 1);
+      text-align: center;
+    }
+
+    .input-wrapper {
+      margin-bottom: 20px;
+    }
+
+    .input-field {
+      width: 100%;
+      padding: 20px;
+      border-radius: 25px;
+      margin-right: 20px;
+      border: 1px solid #ddd;
+      background-color: #555;
+      color: white;
+    }
+
+    .strength-bar {
+      height: 12px;
+      width: 838px;
+      margin-top: 5px;
+      background-color: #ddd;
+      border-radius: 5px;
+    }
+
+    .strength-bar.weak {
+      background-color: red;
+    }
+
+    .strength-bar.medium {
+      background-color: orange;
+    }
+
+    .strength-bar.strong {
+      background-color: green;
+    }
+
+    .btn {
+      background-color: #e8a817;
+      color: #333;
+      padding: 15px 20px;
+      border: none;
+      margin-top: 25px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .btn:hover {
+      background-color: #ffd700;
+    }
+  </style>
+</head>
+
+<body>
+  <section id="register-section" class="section">
+    <h2>Register</h2>
+    <form id="register-form-section">
+      <div class="input-wrapper">
+        <input type="text" id="section-register-name" name="name" placeholder="Name" class="input-field" required>
+      </div>
+      <div class="input-wrapper">
+        <input type="text" id="section-register-residence" name="residence" placeholder="Place of Residence" class="input-field" required>
+      </div>
+      <div class="input-wrapper">
+        <input type="email" id="section-register-email" name="email" placeholder="Email Address" class="input-field" required>
+      </div>
+      <div class="input-wrapper">
+        <input type="tel" id="section-register-phone" name="phone" placeholder="Phone Number" class="input-field" required>
+      </div>
+      <div class="input-wrapper">
+        <input type="password" id="section-register-password" name="password" placeholder="Password" class="input-field" required>
+      </div>
+      <div class="input-wrapper">
+        <input type="password" id="section-register-confirm-password" name="confirm-password" placeholder="Confirm Password" class="input-field" required>
+      </div>
+      <div id="section-password-strength" class="strength-bar"></div>
+      <button type="submit" class="btn">Register</button>
+    </form>
+  </section>
+
+  <script>
+    const passwordField = document.getElementById('section-register-password');
+    const confirmPasswordField = document.getElementById('section-register-confirm-password');
+    const strengthBar = document.getElementById('section-password-strength');
+
+    passwordField.addEventListener('input', function() {
+      const password = passwordField.value;
+      let strength = 0;
+
+      if (password.length > 6) strength++;
+      if (password.match(/[A-z]/)) strength++;
+      if (password.match(/[A-Z]/)) strength++;
+      if (password.match(/[0-9]/)) strength++;
+      if (password.match(/[$@#&!]/)) strength++;
+
+      strengthBar.classList.remove('weak', 'medium', 'strong');
+      if (strength < 2) {
+        strengthBar.classList.add('weak');
+      } else if (strength < 4) {
+        strengthBar.classList.add('medium');
+      } else {
+        strengthBar.classList.add('strong');
+      }
+    });
+
+    document.getElementById('register-form-section').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const email = document.getElementById('section-register-email').value;
+      const password = passwordField.value;
+      const confirmPassword = confirmPasswordField.value;
+      const phone = document.getElementById('section-register-phone').value;
+      const name = document.getElementById('section-register-name').value;
+      const residence = document.getElementById('section-register-residence').value;
+
+      if (email === '' || password === '' || confirmPassword === '' || phone === '' || name === '' || residence === '') {
+        alert('Please fill in all fields.');
+      } else if (!validateEmail(email)) {
+        alert('Invalid email address.');
+      } else if (password !== confirmPassword) {
+        alert('Passwords do not match.');
+      } else {
+        alert('Registration successful!');
+      }
+    });
+
+    function validateEmail(email) {
+      const re = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+      return re.test(String(email).toLowerCase());
+    }
+  </script>
+</body>
+
+</html>
