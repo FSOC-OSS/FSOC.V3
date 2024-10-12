@@ -1,4 +1,6 @@
 
+
+
 /**
  * PRELOAD
  * 
@@ -10,6 +12,56 @@ const preloader = document.querySelector("[data-preaload]");
 window.addEventListener("load", function () {
   preloader.classList.add("loaded");
   document.body.classList.add("loaded");
+});
+
+
+
+const passwordInput = document.getElementById('description');
+const passwordCriteria = document.getElementById('password-criteria');
+const passwordStrength = document.getElementById('password-strength');
+const strengthText = document.getElementById('strength-text');
+
+passwordInput.addEventListener('input', function() {
+    const password = this.value;
+
+    // Show the password criteria and strength only when user starts typing
+    if (password.length > 0) {
+        passwordCriteria.style.display = 'block';
+        passwordStrength.style.display = 'block';
+        strengthText.style.display = 'block';
+    } else {
+        passwordCriteria.style.display = 'none';
+        passwordStrength.style.display = 'none';
+        strengthText.style.display = 'none';
+    }
+
+    // Criteria flags
+    const lengthCriteria = password.length >= 8;
+    const uppercaseCriteria = /[A-Z]/.test(password);
+    const lowercaseCriteria = /[a-z]/.test(password);
+    const numberCriteria = /[0-9]/.test(password);
+    const symbolCriteria = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+
+    // Update criteria list
+    document.getElementById('length-criteria').style.display = lengthCriteria ? 'none' : 'list-item';
+    document.getElementById('uppercase-criteria').style.display = uppercaseCriteria ? 'none' : 'list-item';
+    document.getElementById('lowercase-criteria').style.display = lowercaseCriteria ? 'none' : 'list-item';
+    document.getElementById('number-criteria').style.display = numberCriteria ? 'none' : 'list-item';
+    document.getElementById('symbol-criteria').style.display = symbolCriteria ? 'none' : 'list-item';
+
+    // Determine password strength
+    const criteriaMet = [lengthCriteria, uppercaseCriteria, lowercaseCriteria, numberCriteria, symbolCriteria].filter(Boolean).length;
+
+    if (criteriaMet < 2) {
+        strengthText.textContent = 'Weak';
+        strengthText.style.color = 'red';
+    } else if (criteriaMet >= 2 && criteriaMet < 4) {
+        strengthText.textContent = 'Moderate';
+        strengthText.style.color = 'yellow';
+    } else if (criteriaMet === 5) {
+        strengthText.textContent = 'Strong';
+        strengthText.style.color = 'green';
+    }
 });
 
 
@@ -142,3 +194,5 @@ window.addEventListener("mousemove", function (event) {
   }
 
 });
+
+
