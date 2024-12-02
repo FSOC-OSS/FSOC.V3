@@ -8,9 +8,14 @@
 const preloader = document.querySelector("[data-preaload]");
 
 window.addEventListener("load", function () {
-  preloader.classList.add("loaded");
-  document.body.classList.add("loaded");
-});
+setTimeout(() => {
+  if (preloader) {
+    preloader.style.display = "none";
+    document.body.classList.add("loaded");
+  } else {
+    console.error("Preloader element not found.");
+  }
+}, 2000);
 
 
 /**
@@ -36,15 +41,37 @@ const overlay = document.querySelector("[data-overlay]");
 const toggleNavbar = function () {
   navbar.classList.toggle("active");
   document.body.classList.toggle("nav-active");
-}
+};
+navTogglers.forEach(toggler => {
+  toggler.addEventListener("click", toggleNavbar);
+});
 
-//email opener xd
-const mailopen = function(event){
-  const email = event.target.getAttribute("data-email");
-  if(email){
-    window.location.href = `mailto:${email}`;
+
+
+
+
+const backTopBtn = document.querySelector(".back-top-btn.active");
+const preloaders = document.getElementById("preload");
+
+backTopBtn.addEventListener("click", (event) => {
+  event.preventDefault();
+  preloaders && (preloaders.style.display = "none");
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+window.addEventListener("load", () => {
+  preloaders && (preloaders.style.display = "none");
+});
+
+window.addEventListener("scroll", function () {
+  if (window.scrollY >= 50) {
+    //Do something
+  } else {
+    
+    //Do something
   }
-}
+});
+
 
 const emailElements = document.querySelectorAll("[data-email]");
 
@@ -140,5 +167,4 @@ window.addEventListener("mousemove", function (event) {
     y = y * Number(parallaxItems[i].dataset.parallaxSpeed);
     parallaxItems[i].style.transform = `translate3d(${x}px, ${y}px, 0px)`;
   }
-
 });
