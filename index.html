@@ -1181,6 +1181,33 @@
 
     </div>
   </footer>
+  <section id="blog-section">
+    <h2>Submit Your Blog</h2>
+    <form id="blogForm">
+        <div class="form-group">
+            <label for="name" style="color: white;">Name:</label>
+            <input type="text" style="color: white;" id="name" name="name" required>
+            <small class="error-message" id="nameError"></small>
+        </div>
+        <div class="form-group">
+            <label for="email" style="color: white;">Email:</label>
+            <input type="email" style="color: white;" id="email" name="email" required>
+            <small class="error-message" id="emailError"></small>
+        </div>
+        <div class="form-group">
+            <label for="description" style="color: white;">Blog Description:</label>
+            <textarea id="description" style="color: white;" name="description" rows="5" required></textarea>
+            <small class="error-message" id="descriptionError"></small>
+        </div>
+        <button type="submit">Submit Blog</button>
+        <p class="success-message" id="successMessage"></p>
+    </form>
+  </section>
+<div class="blogs">
+    <h2>Submitted Blogs</h2>
+    <div id="blogList"></div>
+  </div>
+
 
 
 
