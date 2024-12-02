@@ -1,4 +1,15 @@
+//  declaring the links
+let fbLink = "https://www.facebook.com/" ;
+let instLink = "https://www.instagram.com/";
+ let twLink = "https://x.com/home?lang=en-in";
+  let ytLink = "https://www.youtube.com/" ;
+  let map = "https://www.google.co.in/maps";
 
+document.getElementsByClassName('fb')[0].setAttribute('href', fbLink);
+document.getElementsByClassName('insta')[0].setAttribute('href', instLink);
+document.getElementsByClassName('twt')[0].setAttribute('href', twLink);
+document.getElementsByClassName('yt')[0].setAttribute('href', ytLink);
+document.getElementsByClassName('gm')[0].setAttribute('href', map);
 /**
  * PRELOAD
  * 
