@@ -142,3 +142,20 @@ window.addEventListener("mousemove", function (event) {
   }
 
 });
+
+
+
+const backTopBtn = document.querySelector("[data-back-top-btn]");
+
+const toggleButtonVisibility = () => {
+    const shouldShowButton = window.scrollY >= 50; 
+    backTopBtn.classList.toggle("active", shouldShowButton);
+    
+    backTopBtn.style.zIndex = shouldShowButton ? '4' : '';
+};
+
+window.addEventListener("scroll", toggleButtonVisibility);
+
+backTopBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+});
