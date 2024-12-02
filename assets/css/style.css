@@ -1336,8 +1336,20 @@ textarea.input-field {
   text-decoration: underline;
 }
 
+/*-----------------------------------*\
+  #BACK TO TOP BUTTON
+\*-----------------------------------*/
 
 
+#backToTopButton {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  padding: 10px 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: none; /* Initially hidden */
+}
 
 
 
