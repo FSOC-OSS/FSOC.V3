@@ -52,6 +52,9 @@ const emailElements = document.querySelectorAll("[data-email]");
 addEventOnElements(emailElements, "click", openMailClient);
 
 
+addEventOnElements(navTogglers, "click", toggleNavbar);
+
+
 /**
  * HERO SLIDER
  */
