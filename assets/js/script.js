@@ -13,17 +13,6 @@ window.addEventListener("load", function () {
 });
 
 
-/**
- * add event listener on multiple elements
- */
-
-const addEventOnElements = function (elements, eventType, callback) {
-  for (let i = 0, len = elements.length; i < len; i++) {
-    elements[i].addEventListener(eventType, callback);
-  }
-}
-
-
 
 /**
  * NAVBAR
@@ -37,20 +26,6 @@ const toggleNavbar = function () {
   navbar.classList.toggle("active");
   document.body.classList.toggle("nav-active");
 }
-
-//email opener xd
-const mailopen = function(event){
-  const email = event.target.getAttribute("data-email");
-  if(email){
-    window.location.href = `mailto:${email}`;
-  }
-}
-
-const emailElements = document.querySelectorAll("[data-email]");
-
-//click event now
-addEventOnElements(emailElements, "click", openMailClient);
-
 
 /**
  * HERO SLIDER
@@ -108,11 +83,15 @@ const autoSlide = function () {
   }, 7000);
 }
 
-addEventOnElements([heroSliderNextBtn, heroSliderPrevBtn], "mouseover", function () {
+heroSliderNextBtn.addEventListener("mouseover", function () {
+  clearInterval(autoSlideInterval);})
+heroSliderPrevBtn.addEventListener("mouseover", function () {
   clearInterval(autoSlideInterval);
 });
 
-addEventOnElements([heroSliderNextBtn, heroSliderPrevBtn], "mouseout", autoSlide);
+heroSliderNextBtn.addEventListener("mouseout", autoSlide);
+heroSliderPrevBtn.addEventListener("mouseout", autoSlide);
+
 
 window.addEventListener("load", autoSlide);
 
