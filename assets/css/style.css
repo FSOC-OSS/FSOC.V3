@@ -304,7 +304,45 @@ body.nav-active { overflow: hidden; }
   overflow: hidden;
   z-index: 1;
 }
-
+.blog-post{
+  position: relative;
+  color: var(--gold-crayola);
+  font-size: var(--fontSize-label-2);
+  font-weight: var(--weight-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--letterSpacing-5);
+  max-width: max-content;
+  border: 2px solid var(--gold-crayola);
+  padding: 12px 45px;
+  overflow: hidden;
+  z-index: 1;
+  margin-left: 32rem ;
+  margin-top: 1rem;
+  background-image: url(https://img.freepik.com/free-photo/office-supplies_23-2148103964.jpg?ga=GA1.1.146663962.1727957270&semt=ais_hybrid);
+  background-repeat:no-repeat;
+  background-size: cover;
+  background-position: -14rem;
+}
+.blog-post h2{
+  
+  text-align: center;
+  font-weight: 700;
+ 
+}
+.text-blog{
+  color: rgb(8, 8, 8);
+  font-size: larger;
+  border-radius: 6px;
+  text-align: center;
+}
+.text-blog:hover {
+  background-color: var(--gold-crayola);
+}
+@media (max-width:768px){ 
+  .blog-post{
+    margin-left: 13rem ;
+  }
+}
 .btn::before {
   content: "";
   position: absolute;
