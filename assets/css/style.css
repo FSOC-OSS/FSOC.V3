@@ -2052,3 +2052,31 @@ textarea.input-field {
   }
 
 }
+
+/* Adding Hovering effect --------------------------- */
+.hover\:chamak:is(:hover, :focus-within)::after {
+  animation: chamak 1.5s ease-in-out;
+}
+.hover\:chamak {
+  overflow: hidden;
+}
+.hover\:chamak::after {
+  content: "";
+  top: 0;
+  left: 0;
+  width: 200%;
+  background-image: linear-gradient(135deg, transparent, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 25%, rgba(255, 255, 255, 0) 75%,transparent);
+  transform: translate(-100%, -100%);
+  position: absolute;
+  transition: all 0.5s ease-in-out;
+  height: 300%;
+}
+
+@keyframes chamak {
+  0% {
+    transform: translate(-100%, -100%);
+    opacity: 1;
+  }100% {
+    transform: translate(100%, 100%);
+    opacity: 0;
+  }}
